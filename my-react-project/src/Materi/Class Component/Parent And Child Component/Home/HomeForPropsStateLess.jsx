@@ -1,11 +1,21 @@
 import React, {Component} from 'react';
 import PropsStateLess from '../../../Function Component/Props/PropsStateLess'
 import Product from '../Product/Product';
+import LifeCycleComp from '../../Life Cycle Component/LifeCycleComp';
 
 // HOME ini berfungsi untuk mengumpulkan component lainnya,
 //      agar terlihat rapih dan tidak memenuhi component index.js
 
 class HomeForPropsStateLess extends Component{
+
+    state = {
+        showComponent: true
+    }
+
+    componentDidMount(){
+
+    }
+
     render(){
         return (
             <div>
@@ -27,6 +37,12 @@ class HomeForPropsStateLess extends Component{
 
                 <h1>Parent and child component</h1>
                 <Product/>
+                <hr/>
+
+                <h1>Life Cycle Component</h1>
+                {
+                    this.state.showComponent ? <LifeCycleComp/> : null
+                }
                 <hr/>
         
             </div>

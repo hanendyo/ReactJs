@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import StateLess from './Materi/Function Component/Stateless Component/StateLessComp'; //-->stateless component
 import StateFul from './Materi/Class Component/Stateful Component/StateFulComp' //--> stateful component
 import PropsStateLess from './Materi/Function Component/Props/PropsStateLess'
+import LifeCycleComp from './Materi/Class Component/Life Cycle Component/LifeCycleComp';
 import HomeForPropsStateLess from './Materi/Class Component/Parent And Child Component/Home/HomeForPropsStateLess'
 
 ReactDOM.render(
