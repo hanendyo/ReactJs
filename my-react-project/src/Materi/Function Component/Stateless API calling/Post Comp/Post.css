@@ -1,0 +1,25 @@
+.post{
+    display: inline-grid;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 200px;
+    margin: 20px 20px;
+    background-color: tan;
+    padding: 2px 16px;
+}
+
+.imgThumb{
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.title{
+    font-weight: bold;
+    font-size: large;
+    font-style: oblique;
+}
+
+.content .removeBtn{
+    margin: 10px 0 ;
+}

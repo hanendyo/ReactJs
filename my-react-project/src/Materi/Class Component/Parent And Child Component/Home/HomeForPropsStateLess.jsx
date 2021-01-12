@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropsStateLess from '../../../Function Component/Props/PropsStateLess'
 import Product from '../Product/Product';
 import LifeCycleComp from '../../Life Cycle Component/LifeCycleComp';
+import BlogPost from '../../Stateful API calling/BlogPost/BlogPost';
 
 // HOME ini berfungsi untuk mengumpulkan component lainnya,
 //      agar terlihat rapih dan tidak memenuhi component index.js
@@ -43,6 +44,10 @@ class HomeForPropsStateLess extends Component{
                 {
                     this.state.showComponent ? <LifeCycleComp/> : null
                 }
+                <hr/>
+
+                <h1>API calling</h1>
+                <BlogPost/>
                 <hr/>
         
             </div>

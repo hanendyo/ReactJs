@@ -1,3 +1,20 @@
-step:
-1. npm install -g create-react-app
-2.create-react-app 'nama project anda'
+
+
+note: untuk detail, coba search dokumentasinya.
+
+
+React:
+1.install
+npm install -g create-react-app
+create-react-app 'nama project anda'
+
+2.run:
+-npm start
+
+
+install axios:
+-npm install axios
+
+install json server:
+-npm install json-server
+
