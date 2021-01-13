@@ -1,18 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// materi
-import StateLess from './Materi/Function Component/Stateless Component/StateLessComp'; //-->stateless component
-import StateFul from './Materi/Class Component/Stateful Component/StateFulComp' //--> stateful component
-import PropsStateLess from './Materi/Function Component/Props/PropsStateLess'
-import LifeCycleComp from './Materi/Class Component/Life Cycle Component/LifeCycleComp';
-import HomeForPropsStateLess from './Materi/Class Component/Parent And Child Component/Home/HomeForPropsStateLess'
+
+import Home from './Project/Home/HomeForComponentCopy';
+
+import {createStore} from 'redux';
+import { Provider } from 'react-redux';
+import rootReducer from './Project/Pages/Redux/Reducer/GlobalReducer';
+
+
+
+
+// store
+const store = createStore(rootReducer);
+
+
 
 ReactDOM.render(
-    <HomeForPropsStateLess/>,
+  // Provider adalah penyedia store global, dan store nya berisi store global.
+  <Provider store={store}> 
+    <Home/>
+  </Provider>,
   document.getElementById('root')
 );
 

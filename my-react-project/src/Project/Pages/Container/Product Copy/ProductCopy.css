@@ -1,0 +1,44 @@
+.header {
+    margin: 0px 20px;
+    width: 300px;
+    height: auto;
+    display: flex;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 5px;
+    background-color: orange;
+}
+
+
+.trolley img{
+    max-width: 100%;
+    height: 50px;    
+}
+
+
+
+.card {
+    /* Add shadows to create the "card" effect */
+    display: inline-grid;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 300px;
+    margin: 20px 20px;
+    background-color: lightcoral;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  /* Add some padding inside the card container */
+
+  .img-thumb-product img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 10px;
+  }
+

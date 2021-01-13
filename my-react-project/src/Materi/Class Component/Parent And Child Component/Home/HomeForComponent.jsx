@@ -1,13 +1,19 @@
-import React, {Component} from 'react';
-import PropsStateLess from '../../../Function Component/Props/PropsStateLess'
+import React, {Component, Fragment} from 'react';
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+
+
+import './HomeForCompoent.css'
+
+// import PropsStateLess from '../../../Function Component/Props/PropsStateLess'
 import Product from '../Product/Product';
 import LifeCycleComp from '../../Life Cycle Component/LifeCycleComp';
 import BlogPost from '../../Stateful API calling/BlogPost/BlogPost';
+import App from '../../../../App';
 
 // HOME ini berfungsi untuk mengumpulkan component lainnya,
 //      agar terlihat rapih dan tidak memenuhi component index.js
 
-class HomeForPropsStateLess extends Component{
+class HomeForComponent extends Component{
 
     state = {
         showComponent: true
@@ -19,6 +25,38 @@ class HomeForPropsStateLess extends Component{
 
     render(){
         return (
+
+            <Router>
+
+     
+            <Fragment>
+                <div className='navigation'>
+                    <Link to="/">Home</Link>
+                    <Link to="/blogpost">Blog Post</Link>
+                    <Link to="/product">Product</Link>
+                    <Link to="/lifecyclecomp">Lifecycle Component</Link>
+                </div>
+                <Route path='/'  exact component={App} />
+                <Route path='/blogpost' component={BlogPost} />
+                <Route path='/product' component={Product} />
+                <Route path='/lifecyclecomp' component={LifeCycleComp} />
+            </Fragment>
+
+            </Router>
+        )
+    }
+}
+
+
+
+export default HomeForComponent;
+
+
+
+
+
+// backup
+       {/* <Fragment>
             <div>
                 <h1>Props component</h1>
                 <PropsStateLess 
@@ -51,10 +89,4 @@ class HomeForPropsStateLess extends Component{
                 <hr/>
         
             </div>
-        )
-    }
-}
-
-
-
-export default HomeForPropsStateLess;
+            </Fragment> */}

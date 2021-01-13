@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
-import Post from '../../../Function Component/Stateless API calling/Post Comp/Post'
-import './BlogPost.css'
+import './BlogPostCopy.css'
 import axios from 'axios'
+import Post from '../../Component/Post Copy/PostCopy'
 
 
 class BlogPost extends Component{
@@ -51,7 +51,8 @@ class BlogPost extends Component{
 
 
     putDataToAPI =()=> {
-        axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`, this.state.formBlogPost)
+        let id = this.state.formBlogPost.id;
+        axios.put(`http://localhost:3004/posts/${id}`, this.state.formBlogPost)
         .then(res => {
             console.log(`tes: `,res);
         
@@ -94,6 +95,14 @@ class BlogPost extends Component{
             // console.log(`fblpn: `, formBlogPostNew);
             //-------------------------------------------------------------
             
+        }
+
+        // untuk detail post
+        handleDetail =(id)=>{
+            console.log(this.props);
+
+            // props yg dikirimkan oleh react-router untuk pindah link
+            this.props.history.push(`/detailpost/${id}`);
         }
         
         // untuk update
@@ -172,7 +181,7 @@ class BlogPost extends Component{
                 <h1 className="section-title">Blog Post</h1>
 
                 <div className="form-add-post">
-                    <label htmlFor="title" name="titile">Title</label>
+                    <label htmlFor="title" name="title" >Title</label>
                     {/* memberikan "onChange" pada tag input */}
                     <input type="text" value={this.state.formBlogPost['title']} name="title" id=""  placeholder="add title" onChange={this.handleFormChange}/> 
                     <label htmlFor="body">Blog content</label>
@@ -184,8 +193,8 @@ class BlogPost extends Component{
 
                 {
                     this.state.post.map(m => {
-                        // menyederhanakan beberapa props menjadi satu
-                        return <Post key={m.id} data={m} remove={this.handleRemove } update={this.handleUpdate}/>
+                        // menyederhanakan beberapa props menjadi satu (data={m})
+                        return <Post key={m.id} data={m} remove={this.handleRemove } update={this.handleUpdate} detail={this.handleDetail}/>
                     })
                 }
                 
