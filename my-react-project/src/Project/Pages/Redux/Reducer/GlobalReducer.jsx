@@ -2,16 +2,16 @@ import Actiontype from "./ActionType";
 
 // store global
 const globalState = {
-    totalOrder:0
+    totalOrder: 0
 }
 
 // reducer
-const rootReducer =(state = globalState, action)=> {
-
+const GlobalReducer =(state = globalState, action)=> {
   // counter product
   switch(action.type){
     case Actiontype.PLUS_ORDER:
       return {
+        // ada (...state) agar tidak ter-overwrite. 
         ...state,
         totalOrder: state.totalOrder + 1
       }
@@ -32,8 +32,6 @@ const rootReducer =(state = globalState, action)=> {
       default:
         return state;   
   }
-
-
 }
 
-export default rootReducer;
+export default GlobalReducer;

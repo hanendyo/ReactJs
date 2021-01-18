@@ -1,3 +1,4 @@
+// REDUX
 import React, {Component, Fragment} from 'react';
 import Trolley from '../../../img/trolley.png'
 import './ProductCopy.css'
@@ -9,17 +10,17 @@ import { connect } from 'react-redux';
 class Product extends Component{
 
     //state 
-    state = {
-        order: 4
-    }
+    // state = {
+    //     order: 4
+    // }
 
 
     //method
-    handleCounterChangeProduct=(newValue)=>{
-        this.setState({
-            order: newValue
-        })
-    }
+    // handleCounterChangeProduct=(newValue)=>{
+    //     this.setState({
+    //         order: newValue
+    //     })
+    // }
 
                     
 
@@ -48,6 +49,7 @@ class Product extends Component{
 
 
 const mapStateToProps =(state)=>{
+    console.log(`stateorder:`, state.totalOrder);
     return {
         order: state.totalOrder
     }
@@ -56,4 +58,43 @@ const mapStateToProps =(state)=>{
 export default connect(mapStateToProps) (Product);
 
 
+
+
+
+// // CONTEXT
+// import React, {Component, Fragment} from 'react';
+// import Trolley from '../../../img/trolley.png'
+// import './ProductCopy.css'
+// import CardProduct from './Card Product Copy/CardProductCopy';
+// import { GlobalConsumer } from '../../../../Context/Context';
+
+
+
+// class Product extends Component{
+
+//     render(){
+//         console.log(`this:`, this);
+//         return(
+//             <Fragment>
+//                 <h1>Product</h1>
+//                     <div className="header">
+//                         <div className="logo">
+//                             <img src="" alt=""/>
+//                         </div>
+//                         <div className="trolley">
+//                             <img src={Trolley} alt=""/>
+//                         <div className="count">{this.props.state.totalOrder}</div>
+//                     </div>
+//                 </div>
+//                 <CardProduct/>
+//             </Fragment>
+           
+//         )
+    
+
+//     }
+// }
+
+
+// export default GlobalConsumer (Product);
 

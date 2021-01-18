@@ -1,3 +1,4 @@
+// REDUX
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import Actiontype from '../../../../Redux/Reducer/ActionType';
@@ -65,3 +66,31 @@ const mapDispatchToProps =(dispatch)=>{
 
 
 export default connect(mapStateToProps, mapDispatchToProps) (Counter);
+
+
+
+
+// // CONTEXT
+// import React, { Component } from 'react'
+// import { GlobalConsumer } from '../../../../../../Context/Context';
+
+
+// class Counter extends Component{
+//     render(){
+//         console.log(`render: `,this);
+//         // console.log(`props: `,this.props);
+//         return(
+//             <div className="counter">
+//                 <button className="minus" onClick={()=>this.props.dispatch({type: 'MINUS_ORDER'})}>-</button>
+//                 <input type="text" value={this.props.state.totalOrder}/>
+//                 <button className="plus" onClick={()=>this.props.dispatch({type: 'PLUS_ORDER'})}>+</button>
+//             </div>
+//         )
+//     }
+// }
+
+
+
+// export default GlobalConsumer (Counter);
+
+

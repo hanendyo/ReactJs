@@ -2,12 +2,14 @@ import React, { Component, Fragment } from 'react'
 import './BlogPostCopy.css'
 import axios from 'axios'
 import Post from '../../Component/Post Copy/PostCopy'
+import API from '../../../../Services/Sevices'
 
 
 class BlogPost extends Component{
 
     state={
         post: [],
+        comment: [],
         formBlogPost: {
             userId: 1,
             id: 1,
@@ -30,39 +32,46 @@ class BlogPost extends Component{
 
     // mengambil data API
     getPostAPI =()=> {
-        axios.get(`http://localhost:3004/posts?_sort=id&_order=desc`)
+        API.getBlogPost()
         .then(result => {
-            console.log(result);
             this.setState({
-                post: result.data
+                post: result
             })
         })
+
+        API.getComments()
+        .then(result=>{
+            this.setState({
+                comment: result
+            })
+        })
+   
     }
     
    
     postDataToAPI =()=> {
-        axios.post(`http://localhost:3004/posts`, this.state.formBlogPost)
+        API.postBlogPost(this.state.formBlogPost)
         .then(response => {
-            console.log(response);
             this.handleFormChangeClear();
             this.getPostAPI(); //--> get API setelah post data ke API.
-        }, err => console.log('error:  ', err));
+        }, err => {
+            console.log(err);
+        })
     }
 
 
     putDataToAPI =()=> {
-        let id = this.state.formBlogPost.id;
-        axios.put(`http://localhost:3004/posts/${id}`, this.state.formBlogPost)
-        .then(res => {
-            console.log(`tes: `,res);
-        
+        API.putBlogPost(this.state.formBlogPost, this.state.formBlogPost.id)
+        .then(response => {
             this.handleFormChangeClear();
             this.getPostAPI();    
 
-            console.log(`fbp: `, this.state.formBlogPost);
+        }, err => {
+            console.log(err);
         })
-    }
- 
+    } 
+       
+    
 
 
     // HANDLE
@@ -126,10 +135,10 @@ class BlogPost extends Component{
         }
 
         
+        // DELETE
         // untuk mendelete 
         handleRemove =(id)=> {
-            // DELETE
-            axios.delete(`http://localhost:3004/posts/${id}`)
+            API.deleteBlogPost(id)
             .then(response => {
                 this.getPostAPI(); //--> meng-GET API lagi setelah menghapus (edit/update) sesuatu.)
             })
@@ -190,6 +199,18 @@ class BlogPost extends Component{
                     <button className="btn-submit" onClick={this.handleSubmit}>submit</button>
                 </div>    
 
+                {/* {
+                    this.state.comment.map(m => {
+                        return(
+                            <div>
+                                <p>id: {m.id}</p>
+                                <p>name: {m.name}</p>
+                                <p>email: {m.email}</p>
+                                <p>comment: {m.body}</p>
+                            </div>
+                        )
+                    })
+                } */}
 
                 {
                     this.state.post.map(m => {
